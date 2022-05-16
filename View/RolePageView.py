@@ -32,5 +32,5 @@ class RolePageView():
         self.button_employee.configure(foreground="#ffffff")
         self.button_employee.configure(background="#ffffff")
         self.button_employee.configure(borderwidth="0")
-        self.img_employee = PhotoImage(file="./Images/Button_Admin.png")
+        self.img_employee = PhotoImage(file="./Images/Button_Employee.png")
         self.button_employee.configure(image=self.img_employee)

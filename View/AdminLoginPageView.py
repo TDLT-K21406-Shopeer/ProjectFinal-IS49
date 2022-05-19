@@ -31,6 +31,7 @@ class AdminLoginPageView():
 
         self.entry_password = Entry(root)
         self.entry_password.place(relx=0.527, rely=0.846, width=374, height=30)
-        self.entry_password.configure(font="-family {Poppins} -size 12")
+        self.entry_password.configure(font="-family {Poppins} -size 16")
         self.entry_password.configure(relief="flat")
+        self.entry_password.configure(show="*")
         self.entry_password.focus()

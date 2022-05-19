@@ -1,5 +1,4 @@
 from tkinter import *
-# from Model.RolePageModel import *
 
 class RolePageView():
     def __init__(self,root,model):

@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from View.AdminLoginPageView import *
 from Model.LoginPageModel import *
+from Controller.AdminWorkController import *
 
 class AdminLoginPageController():
     def __init__(self, root):
@@ -19,7 +20,9 @@ class AdminLoginPageController():
             self.view.entry_username.config(textvariable =self.model.username)
             self.view.entry_password.config(textvariable =self.model.password)
             self.root.withdraw()
-            
+            AdminWorkController()
+
+
         else:
             messagebox.showerror("Error","Username or password incorrect")
             self.model.username.set("")

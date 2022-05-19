@@ -22,3 +22,16 @@ class EmployeeLoginPageView():
         self.button_login.configure(borderwidth="0")
         self.img_login = PhotoImage(file="./Images/Button_Login.png")
         self.button_login.configure(image=self.img_login)
+        
+        self.entry_username = Entry(root)
+        self.entry_username.place(relx=0.527, rely=0.646, width=374, height=30)
+        self.entry_username.configure(font="-family {Poppins} -size 12")
+        self.entry_username.configure(relief="flat")
+        self.entry_username.focus()
+
+        self.entry_password = Entry(root)
+        self.entry_password.place(relx=0.527, rely=0.846, width=374, height=30)
+        self.entry_password.configure(font="-family {Poppins} -size 12")
+        self.entry_password.configure(relief="flat")
+        self.entry_password.configure(show="*")
+        self.entry_password.focus()

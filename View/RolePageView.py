@@ -13,7 +13,7 @@ class RolePageView():
         self.label.configure(image=self.img)
 
         self.button_admin = Button(root)
-        self.button_admin.place(relx=0.7, rely=0.5, width=204, height=52)
+        self.button_admin.place(relx=0.665, rely=0.53, width=204, height=52)
         self.button_admin.configure(relief="flat")
         self.button_admin.configure(overrelief="flat")
         self.button_admin.configure(activebackground="#ffffff")
@@ -24,7 +24,7 @@ class RolePageView():
         self.button_admin.configure(image=self.img_admin)
 
         self.button_employee = Button(root)
-        self.button_employee.place(relx=0.7, rely=0.7, width=204, height=52)
+        self.button_employee.place(relx=0.665, rely=0.63, width=204, height=52)
         self.button_employee.configure(relief="flat")
         self.button_employee.configure(overrelief="flat")
         self.button_employee.configure(activebackground="#ffffff")

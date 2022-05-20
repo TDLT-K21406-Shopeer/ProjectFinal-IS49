@@ -20,9 +20,7 @@ class AdminLoginPageController():
             self.view.entry_username.config(textvariable =self.model.username)
             self.view.entry_password.config(textvariable =self.model.password)
             self.root.withdraw()
-            global root 
-            root = AdminWorkController()
-
+            self.new_root = AdminWorkController()
 
         else:
             messagebox.showerror("Error","Username or password incorrect")

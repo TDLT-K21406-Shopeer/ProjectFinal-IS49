@@ -2,8 +2,7 @@ from logging import root
 from tkinter import *
 
 class AdminWorkView():
-    def __init__(self, root, model):
-        self.model = model
+    def __init__(self, root):
         root.title("Admin's Options")
         root.geometry("1366x768")
         root.resizable(0,0)

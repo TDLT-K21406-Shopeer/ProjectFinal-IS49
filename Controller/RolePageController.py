@@ -11,7 +11,7 @@ class RolePageController():
       self.root = Tk()
       # center(self.root)
       self.model = RolePageModel()
-      self.view = RolePageView(self.root, self.model)
+      self.view = RolePageView(self.root)
       self.view.button_admin.configure(command=self.admin)
       self.view.button_employee.configure(command=self.employee)
       self.root.mainloop()

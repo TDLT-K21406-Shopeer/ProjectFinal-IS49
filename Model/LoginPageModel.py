@@ -1,4 +1,3 @@
-from re import S
 from tkinter import StringVar
 import pymongo
 

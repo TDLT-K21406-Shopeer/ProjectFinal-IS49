@@ -20,7 +20,7 @@ class EmployeeLoginPageController():
             self.view.entry_username.config(textvariable =self.model.username)
             self.view.entry_password.config(textvariable =self.model.password)
             self.root.withdraw()
-            # self.new_root = EmployeeWorkController()
+            self.new_root = EmployeeWorkController(self.root)
 
 
         else:

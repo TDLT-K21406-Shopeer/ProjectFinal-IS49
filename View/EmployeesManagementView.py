@@ -1,78 +1,80 @@
 from tkinter import *
 
-class employee_management:
-    def __init__(self, root, model):
-        self.root = Tk()
+class EmployeesManagementView:
+    def __init__(self, root):
+        self.root = root
+        self.root.geometry("1366x768")
+        self.root.resizable(0, 0)
+        self.root.title("Employees Management")
 
-        self.root.geometry('1366x768')
-        self.root.resizable(False, False)
-        self.root.title('Employee Management')
+        self.label = Label(self.root)
+        self.label.place(relx=0, rely=0, width=1366, height=768)
+        self.img = PhotoImage(master = self.root, file="./Images/EmployeeManagement.png")
+        self.label.configure(image=self.img)
 
-        self.label1 = Label(root)
-        self.label1.place(relx=0, rely=0, width=1366, height=768)
-        self.img = PhotoImage(file="./images/EmployeeManagement.png")
-        self.label1.configure(image=self.img)
 
-        # Search ID Employee
-            # Button này là nguyên cái thanh Search
-        self.button = Button(root)
-        self.button.place(x=832, y=413)
-        self.button.configure(borderwidth="0")
-        self.button.configure(background="white")
-        self.button.configure(activebackground="white")
-        self.img_bu = PhotoImage(file="./images/Button_Search Bar.png")
-        self.button.configure(image=self.img_bu)
+        self.entry_id = Entry(self.root)
+        self.entry_id.place(relx=0.65, rely=0.55, width=365, height=32)
+        self.entry_id.configure(background = "#fcdefc")
+        self.entry_id.configure(font="Itim 18")
+        self.entry_id.configure(relief="flat")
 
-            # Entry đè lên Button
-        self.entry1 = Entry(root)
-        self.entry1.place(x=900, y=415, width=395, height=32)
-        self.entry1.configure(font="-family {Poppins} -size 12")
-        self.entry1.configure(relief="flat")
-        self.entry1.configure(bg="#FFE0FF")
 
-        # Add Employee
-        self.button1 = Button(root)
-        self.button1.place(x=905, y=490)
-        self.button1.configure(borderwidth="0")
-        self.button1.configure(background="white")
-        self.button1.configure(activebackground="white")
-        self.img_but = PhotoImage(file="./images/Button_AddEmployee.png")
-        self.button1.configure(image=self.img_but)
+        self.button_add_employee = Button(self.root)
+        self.button_add_employee.place(relx=0.6574, rely=0.646)
+        self.button_add_employee.configure(relief="flat")
+        self.button_add_employee.configure(overrelief="flat")
+        self.button_add_employee.configure(activebackground="#ffffff")
+        self.button_add_employee.configure(foreground="#ffffff")
+        self.button_add_employee.configure(background="#ffffff")
+        self.button_add_employee.configure(borderwidth="0")
+        self.img_add = PhotoImage(master = self.root, file="./Images/Button_AddEmployee.png")
+        self.button_add_employee.configure(image=self.img_add)
 
-        # Update Employee
-        self.button2 = Button(root)
-        self.button2.place(x=905, y=550)
-        self.button2.configure(borderwidth="0")
-        self.button2.configure(background="white")
-        self.button2.configure(activebackground="white")
-        self.img_butt = PhotoImage(file="./images/Button_UpdateEmployee.png")
-        self.button2.configure(image=self.img_butt)
+        self.button_update_employee = Button(self.root)
+        self.button_update_employee.place(relx=0.6574, rely=0.7215)
+        self.button_update_employee.configure(relief="flat")
+        self.button_update_employee.configure(overrelief="flat")
+        self.button_update_employee.configure(activebackground="#ffffff")
+        self.button_update_employee.configure(foreground="#ffffff")
+        self.button_update_employee.configure(background="#ffffff")
+        self.button_update_employee.configure(borderwidth="0")
+        self.img_update = PhotoImage(master = self.root,file="./images/Button_UpdateEmployee.png")
+        self.button_update_employee.configure(image=self.img_update)
 
-        # Delete Employee
-        self.button3 = Button(root)
-        self.button3.place(x=905, y=610)
-        self.button3.configure(borderwidth="0")
-        self.button3.configure(background="white")
-        self.button3.configure(activebackground="white")
-        self.img_butto = PhotoImage(file="./images/Button_DeleteEmployee.png")
-        self.button3.configure(image=self.img_butto)
+        self.button_del_employee = Button(self.root)
+        self.button_del_employee.place(relx=0.6574, rely=0.8045)
+        self.button_del_employee.configure(relief="flat")
+        self.button_del_employee.configure(overrelief="flat")
+        self.button_del_employee.configure(activebackground="#ffffff")
+        self.button_del_employee.configure(foreground="#ffffff")
+        self.button_del_employee.configure(background="#ffffff")
+        self.button_del_employee.configure(borderwidth="0")
+        self.img_del = PhotoImage(master = self.root,file="./images/Button_DeleteEmployee.png")
+        self.button_del_employee.configure(image=self.img_del)
 
-        # Exit
-        self.button4 = Button(root)
-        self.button4.place(x=980, y=672)
-        self.button4.configure(borderwidth="0")
-        self.button4.configure(background="white")
-        self.button4.configure(activebackground="white")
-        self.img_button = PhotoImage(file="./images/Button_Exit.png")
-        self.button4.configure(image=self.img_button)
+        self.button_exit = Button(self.root)
+        self.button_exit.place(relx=0.73, rely=0.87)
+        self.button_exit.configure(relief="flat")
+        self.button_exit.configure(overrelief="flat")
+        self.button_exit.configure(activebackground="#ffffff")
+        self.button_exit.configure(foreground="#ffffff")
+        self.button_exit.configure(background="#ffffff")
+        self.button_exit.configure(borderwidth="0")
+        self.img_exit = PhotoImage(master=self.root,file="./Images/Button_Exit.png")
+        self.button_exit.configure(image=self.img_exit)
 
-        # Log out
-        self.button5 = Button(root)
-        self.button5.place(x=1263, y=12)
-        self.button5.configure(borderwidth="0")
-        self.button5.configure(background="white")
-        self.button5.configure(activebackground="white")
-        self.img_buttonn = PhotoImage(file="./images/Button_Logout.png")
-        self.button5.configure(image=self.img_buttonn)
+        self.button_logout = Button(self.root)
+        self.button_logout.place(relx=0.9277, rely=0.0156)
+        self.button_logout.configure(relief="flat")
+        self.button_logout.configure(overrelief="flat")
+        self.button_logout.configure(activebackground="#ffffff")
+        self.button_logout.configure(foreground="#ffffff")
+        self.button_logout.configure(background="#ffffff")
+        self.button_logout.configure(borderwidth="0")
+        self.img_logout = PhotoImage(master = self.root, file="./images/Button_Logout.png")
+        self.button_logout.configure(image=self.img_logout)
 
-        self.root.mainloop()
+
+
+

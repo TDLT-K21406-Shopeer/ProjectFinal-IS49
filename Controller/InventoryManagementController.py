@@ -1,10 +1,11 @@
 from tkinter import *
-from View.InventoriesManagementView import *
+from View.InventoryManagementView import *
 
 class InventoryManagementController():
     def __init__(self, root):
         self.root = root
         self.window = Toplevel(self.root)
+        self.root.withdraw()
         self.view = InventoriesManagementView(self.window)
         # self.view.button_addproduct
         self.window.mainloop()
@@ -16,4 +17,7 @@ class InventoryManagementController():
         pass
 
     def update_product(self):
+        pass
+
+    def exit(self):
         pass

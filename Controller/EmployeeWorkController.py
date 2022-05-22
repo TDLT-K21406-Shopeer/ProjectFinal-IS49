@@ -16,7 +16,7 @@ class EmployeeWorkController():
         pass
 
     def inventory(self):
-        self.wd=InventoryManagementController(self.window)
+        self.wd=InventoryManagementController(self.window,self.root)
     
     def logout(self):
         sure = messagebox.askyesno("Logout", "Are you sure you want to logout?")

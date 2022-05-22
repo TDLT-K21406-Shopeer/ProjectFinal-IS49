@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter.ttk import Treeview
 
 class EmployeesManagementView:
     def __init__(self, root):
@@ -12,13 +13,51 @@ class EmployeesManagementView:
         self.img = PhotoImage(master = self.root, file="./Images/EmployeeManagement.png")
         self.label.configure(image=self.img)
 
+        self.columns = ("id", "name","phone", "age","wage", "username")
+        self.scrollbarx = Scrollbar(root, orient = HORIZONTAL)
+        self.scrollbary = Scrollbar(root, orient = VERTICAL)
+        self.tree = Treeview(root)
+        self.tree.place(x=25, y=108, width=715, height=635)
+        self.tree.configure(
+            columns = self.columns,
+            # yscrollcommand = self.scrollbary.set,
+            # xscrollCommand = self.scrollbarx.set,
+            selectmode ="extended"
+        )
+
+        self.tree.heading("id", text="ID", anchor=W)
+        self.tree.heading("name", text="Name", anchor=W)
+        self.tree.heading("phone", text="Phone", anchor=W)
+        self.tree.heading("age", text="Age", anchor=W)
+        self.tree.heading("wage", text="wage", anchor=W)
+        self.tree.heading("username", text="Username", anchor=W)
+        
+        self.tree.column("#0", stretch=NO, minwidth=0, width=0)
+        self.tree.column("#1", stretch=NO, minwidth=0, width=55)
+        self.tree.column("#2", stretch=NO, minwidth=0, width=300)
+        self.tree.column("#3", stretch=NO, minwidth=0, width=90)
+        self.tree.column("#4", stretch=NO, minwidth=0, width=70)
+        self.tree.column("#5", stretch=NO, minwidth=0, width=100)
+        self.tree.column("#6", stretch=NO, minwidth=0, width=100)
+
+        self.contacts = []
 
         self.entry_id = Entry(self.root)
-        self.entry_id.place(relx=0.65, rely=0.54, width=365, height=32)
+        self.entry_id.place(relx=0.6578, rely=0.54, width=365, height=32)
         self.entry_id.configure(background = "#fcdefc")
         self.entry_id.configure(font="Itim 18")
         self.entry_id.configure(relief="flat")
 
+        self.button_search = Button(self.root)
+        self.button_search.place(relx=0.6164, rely=0.5486,height=25, width=50)
+        self.button_search.configure(relief="flat")
+        self.button_search.configure(overrelief="flat")
+        self.button_search.configure(activebackground="#fcdefc")
+        self.button_search.configure(foreground="#fcdefc")
+        self.button_search.configure(background="#fcdefc")
+        self.button_search.configure(borderwidth="0")
+        self.img_search = PhotoImage(master=self.root, file="./images/button_search.png")
+        self.button_search.configure(image=self.img_search)
 
         self.button_add_employee = Button(self.root)
         self.button_add_employee.place(relx=0.6625, rely=0.638)
@@ -54,7 +93,7 @@ class EmployeesManagementView:
         self.button_del_employee.configure(image=self.img_del)
 
         self.button_exit = Button(self.root)
-        self.button_exit.place(relx=0.7212, rely=0.8763)
+        self.button_exit.place(relx=0.718, rely=0.8763)
         self.button_exit.configure(relief="flat")
         self.button_exit.configure(overrelief="flat")
         self.button_exit.configure(activebackground="#ffffff")

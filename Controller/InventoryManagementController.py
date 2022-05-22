@@ -29,7 +29,7 @@ class InventoryManagementController():
 
     def on_the_select(self,Event):
         self.sel.clear()
-        for i in self.tree.selection():
+        for i in self.view.tree.selection():
             if i not in self.sel:
                 self.sel.append(i)
 

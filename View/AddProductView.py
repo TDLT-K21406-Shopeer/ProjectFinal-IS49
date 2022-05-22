@@ -11,28 +11,28 @@ class AddProductView():
         self.label.configure(image=self.img)
 
         self.entry_name = Entry(root)
-        self.entry_name.place(x=330, y=350, width=252, height=34)
+        self.entry_name.place(x=320, y=390, width=280, height=34)
         self.entry_name.configure(font="-family {Poppins} -size 12")
         self.entry_name.configure(relief="flat")
-        self.entry_name.configure(bg="#EECCEE")
+        self.entry_name.configure(bg="#E7CAEC")
 
         self.entry_quanlity = Entry(root)
-        self.entry_quanlity.place(x=330, y=420, width=252, height=34)
+        self.entry_quanlity.place(x=320, y=490, width=280, height=34)
         self.entry_quanlity.configure(font="-family {Poppins} -size 12")
         self.entry_quanlity.configure(relief="flat")
-        self.entry_quanlity.configure(bg="#EECCEE")
+        self.entry_quanlity.configure(bg="#E7CAEC")
 
         self.entry_price_in = Entry(root)
-        self.entry_price_in.place(x=330, y=420, width=252, height=34)
+        self.entry_price_in.place(x=850, y=490, width=280, height=34)
         self.entry_price_in.configure(font="-family {Poppins} -size 12")
         self.entry_price_in.configure(relief="flat")
-        self.entry_price_in.configure(bg="#EECCEE")
+        self.entry_price_in.configure(bg="#E7CAEC")
 
         self.entry_price_out = Entry(root)
-        self.entry_price_out.place(x=330, y=420, width=252, height=34)
+        self.entry_price_out.place(x=850, y=390, width=280, height=34)
         self.entry_price_out.configure(font="-family {Poppins} -size 12")
         self.entry_price_out.configure(relief="flat")
-        self.entry_price_out.configure(bg="#EECCEE")
+        self.entry_price_out.configure(bg="#E7CAEC")
 
         # Add
         self.button_add = Button(root)

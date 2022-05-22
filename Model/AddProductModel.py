@@ -4,44 +4,29 @@ import pymongo
 class AddProductModel():
     def __init__(self):
         self.name = StringVar()
-        self.age = StringVar()
-        self.wage = StringVar()
-        self.phone = StringVar()
-        self.username = StringVar()
-        self.password = StringVar()
-        self.myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+        self.quantity = StringVar()
+        self.price_in = StringVar()
+        self.price_out = StringVar()
+        self.myclient = pymongo.MongoClient("mongodb://localhost:27017")
         self.mydb = self.myclient["project"]
-        self.mycollection = self.mydb["Employee"]
+        self.mycollection = self.mydb["Product"]
 
-    def check_phone(self):
-        phone = self.phone.get()
-        if  phone.isdigit():
-            if len(phone) ==10:
-                if phone.startwith("0"):
-                    return True
-                else:
-                    messagebox.showerror("Error","Phone number does not exist")
-            else:
-                messagebox.showerror("Error","Phone number does not exist")
-        else:
-            messagebox.showerror("Error", "Phone numbers only include numbers")
-        return False
-
-    def check_age(self):
-        age = self.age.get()
-        if age.isdigit():
-            if int(age)>=18 and int(age)<=60:
-                return True
-            else:
-                messagebox.showerror("Error","Employee of working age is 18 to 60")
-        else:
-            messagebox.showerror("Error", "Age is an integer number")
-        return False
-
-    def check_wage(self):
-        wage = self.wage.get()
-        if wage.isdigit():
+    def check_quantity(self):
+        quantity = self.quantity.get()
+        if quantity.isdigit():
             return True
         else:
-            messagebox.showerror("Error", "Wage is an integer number")
+            messagebox.showerror("Error", "Quantity is an integer number")
+        return False
+
+    def check_price(self):
+        price_in = self.price_in.get()
+        price_out = self.price_out.get()
+        if price_in.isdigit():
+            if price_out.isdigit():
+                return True
+            else:
+                messagebox.showerror("Error","Price out is an integer value")
+        else:
+            messagebox.showerror("Error","Price in is an integer value") 
         return False

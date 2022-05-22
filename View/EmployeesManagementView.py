@@ -14,14 +14,14 @@ class EmployeesManagementView:
 
 
         self.entry_id = Entry(self.root)
-        self.entry_id.place(relx=0.65, rely=0.55, width=365, height=32)
+        self.entry_id.place(relx=0.65, rely=0.54, width=365, height=32)
         self.entry_id.configure(background = "#fcdefc")
         self.entry_id.configure(font="Itim 18")
         self.entry_id.configure(relief="flat")
 
 
         self.button_add_employee = Button(self.root)
-        self.button_add_employee.place(relx=0.6574, rely=0.646)
+        self.button_add_employee.place(relx=0.6625, rely=0.638)
         self.button_add_employee.configure(relief="flat")
         self.button_add_employee.configure(overrelief="flat")
         self.button_add_employee.configure(activebackground="#ffffff")
@@ -32,7 +32,7 @@ class EmployeesManagementView:
         self.button_add_employee.configure(image=self.img_add)
 
         self.button_update_employee = Button(self.root)
-        self.button_update_employee.place(relx=0.6574, rely=0.7215)
+        self.button_update_employee.place(relx=0.6625, rely=0.7161)
         self.button_update_employee.configure(relief="flat")
         self.button_update_employee.configure(overrelief="flat")
         self.button_update_employee.configure(activebackground="#ffffff")
@@ -43,7 +43,7 @@ class EmployeesManagementView:
         self.button_update_employee.configure(image=self.img_update)
 
         self.button_del_employee = Button(self.root)
-        self.button_del_employee.place(relx=0.6574, rely=0.8045)
+        self.button_del_employee.place(relx=0.6625, rely=0.7968)
         self.button_del_employee.configure(relief="flat")
         self.button_del_employee.configure(overrelief="flat")
         self.button_del_employee.configure(activebackground="#ffffff")
@@ -54,7 +54,7 @@ class EmployeesManagementView:
         self.button_del_employee.configure(image=self.img_del)
 
         self.button_exit = Button(self.root)
-        self.button_exit.place(relx=0.73, rely=0.87)
+        self.button_exit.place(relx=0.7212, rely=0.8763)
         self.button_exit.configure(relief="flat")
         self.button_exit.configure(overrelief="flat")
         self.button_exit.configure(activebackground="#ffffff")

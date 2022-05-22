@@ -1,48 +1,71 @@
 from tkinter import *
-class add_product:
-    def __init__(self, root, model):
-        self.top = root
-        self.top.geometry("1366x768")
-        self.top.resizable(0, 0)
-        self.top.title("Add Product")
+class AddProductView():
+    def __init__(self, root):
+        root.geometry("1366x768")
+        root.resizable(0, 0)
+        root.title("Add Product")
 
-        self.label1 = Label(root)
-        self.label1.place(relx=0, rely=0, width=1366, height=768)
-        self.img = PhotoImage(file="./Images/AddProduct.png")
-        self.label1.configure(image=self.img)
-        # Label1 là cái hình Figma Trinh làm á
+        self.label = Label(root)
+        self.label.place(relx=0, rely=0, width=1366, height=768)
+        self.img = PhotoImage(master=root,file="./Images/AddProduct.png")
+        self.label.configure(image=self.img)
 
-        self.clock = Label(root)
-        self.clock.place(relx=0.84, rely=0.065, width=102, height=36)
-        self.clock.configure(font="-family {Poppins Light} -size 12")
-        # Đây là cái font thui, thích đổi sao cũng được hết á
-        self.clock.configure(foreground="#000000")
-        self.clock.configure(background="#ffffff")
-        # Cái này là add time vào trang , bỏ luôn cũng được
+        self.entry_name = Entry(root)
+        self.entry_name.place(x=330, y=350, width=252, height=34)
+        self.entry_name.configure(font="-family {Poppins} -size 12")
+        self.entry_name.configure(relief="flat")
+        self.entry_name.configure(bg="#EECCEE")
 
-        self.entry8 = Entry(root)
-        self.entry8.place(relx=0.527, rely=0.646, width=374, height=30)
-        self.entry8.configure(font="-family {Poppins} -size 12")
-        self.entry8.configure(relief="flat")
-        # Nó không cần cái a=StringVar rồi get,set  Entry("textvariable") cũng được
+        self.entry_quanlity = Entry(root)
+        self.entry_quanlity.place(x=330, y=420, width=252, height=34)
+        self.entry_quanlity.configure(font="-family {Poppins} -size 12")
+        self.entry_quanlity.configure(relief="flat")
+        self.entry_quanlity.configure(bg="#EECCEE")
 
-        self.button2 = Button(root)
-        self.button2.place(relx=0.526, rely=0.566)
-        self.button2.configure(relief="flat")
-        self.button2.configure(overrelief="flat")
-        # Hai cái này cho nút phẳng với Label á
-        self.button2.configure(activebackground="#CF1E14")  # Background lúc click
-        self.button2.configure(foreground="#ffffff")  # Viền nút
-        self.button2.configure(background="#CF1E14")  # Background nút
-        # Mấy màu này thay lại cho giống Figma
-        self.button2.configure(borderwidth="0")
-        # Cái này để k có viền
-        self.img_but = PhotoImage(
-            file="./images/button_product.png")  # ảnh này nhớ đổi tên cho đúng nha, /images kà thuộc thư mục images á
-        self.button2.configure(image=self.img_but)
-        # self.button2.configure(command=self.clearr) cái command này t làm cho
+        self.entry_price_in = Entry(root)
+        self.entry_price_in.place(x=330, y=420, width=252, height=34)
+        self.entry_price_in.configure(font="-family {Poppins} -size 12")
+        self.entry_price_in.configure(relief="flat")
+        self.entry_price_in.configure(bg="#EECCEE")
 
-root = Tk()
-model =""
-add_product(root,model)
-root.mainloop()
+        self.entry_price_out = Entry(root)
+        self.entry_price_out.place(x=330, y=420, width=252, height=34)
+        self.entry_price_out.configure(font="-family {Poppins} -size 12")
+        self.entry_price_out.configure(relief="flat")
+        self.entry_price_out.configure(bg="#EECCEE")
+
+        # Add
+        self.button_add = Button(root)
+        self.button_add.place(x=420, y=600)
+        self.button_add.configure(borderwidth="0")
+        self.button_add.configure(background="#E7E7E7")
+        self.button_add.configure(activebackground="#E7E7E7")
+        self.img_add = PhotoImage(master=root,file="./images/Button_Add.png")
+        self.button_add.configure(image=self.img_add)
+
+        # Clear
+        self.button_clear = Button(root)
+        self.button_clear.place(x=610, y=600)
+        self.button_clear.configure(borderwidth="0")
+        self.button_clear.configure(background="#E7E7E7")
+        self.button_clear.configure(activebackground="#E7E7E7")
+        self.img_clear = PhotoImage(master=root,file="./images/Button_Clear.png")
+        self.button_clear.configure(image=self.img_clear)
+
+        # Exit
+        self.button_exit = Button(root)
+        self.button_exit.place(x=800, y=600)
+        self.button_exit.configure(borderwidth="0")
+        self.button_exit.configure(background="#E7E7E7")
+        self.button_exit.configure(activebackground="#E7E7E7")
+        self.img_exit = PhotoImage(master=root,file="./images/Button_Exit.png")
+        self.button_exit.configure(image=self.img_exit)
+
+        # Log out
+        self.button_logout = Button(root)
+        self.button_logout.place(x=1263, y=12)
+        self.button_logout.configure(borderwidth="0")
+        self.button_logout.configure(background="white")
+        self.button_logout.configure(activebackground="white")
+        self.img_logout = PhotoImage(master=root,file="./images/Button_Logout.png")
+        self.button_logout.configure(image=self.img_logout)

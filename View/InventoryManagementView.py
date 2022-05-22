@@ -1,6 +1,9 @@
 from tkinter import *
+from tkinter.ttk import Treeview
 
-class InventoriesManagementView:
+from isort import file
+
+class InventoryManagementView:
     def __init__(self, root):
         self.root = root
         self.root.geometry("1366x768")
@@ -12,13 +15,49 @@ class InventoriesManagementView:
         self.img = PhotoImage(master = self.root, file="./Images/InventoryManagement.png")
         self.label.configure(image=self.img)
 
+        self.columns =("id", "name", "quantity","price in","price out")
+        self.scrollbarx = Scrollbar(root, orient=HORIZONTAL)
+        self.scrollbary = Scrollbar(root, orient=VERTICAL)
+        self.tree = Treeview(root)
+        self.tree.place(x=25, y=108, width=715, height=635)
+        self.tree.configure(
+            columns=self.columns,
+            yscrollcommand=self.scrollbary.set,
+            xscrollcommand=self.scrollbarx.set,
+            selectmode="extended"
+        )
+
+        self.tree.heading('id',text= "ID", anchor= W)
+        self.tree.heading('name',text= "Name", anchor= W)
+        self.tree.heading('quantity',text= "Quantity", anchor= W)
+        self.tree.heading('price in',text= "Price in", anchor= W)
+        self.tree.heading('price out',text= "Price out", anchor= W)
+
+        self.tree.column("#0", stretch=NO, minwidth=0, width=0)
+        self.tree.column("#1", stretch=NO, minwidth=0, width=55)
+        self.tree.column("#2", stretch=NO, minwidth=0, width=330)
+        self.tree.column("#3", stretch=NO, minwidth=0, width=80)
+        self.tree.column("#4", stretch=NO, minwidth=0, width=125)
+        self.tree.column("#5", stretch=NO, minwidth=0, width=125)
+
+        self.contacts=[]
 
         self.entry_IDproduct = Entry(self.root)
-        self.entry_IDproduct.place(relx=0.65, rely=0.55, width=365, height=32)
+        self.entry_IDproduct.place(relx=0.67, rely=0.55, width=365, height=32)
         self.entry_IDproduct.configure(background = "#fcdefc")
         self.entry_IDproduct.configure(font="Itim 18")
         self.entry_IDproduct.configure(relief="flat")
 
+        self.button_search = Button(self.root)
+        self.button_search.place(relx=0.6164, rely=0.55,height=25, width=50)
+        self.button_search.configure(relief="flat")
+        self.button_search.configure(overrelief="flat")
+        self.button_search.configure(activebackground="#fcdefc")
+        self.button_search.configure(foreground="#fcdefc")
+        self.button_search.configure(background="#fcdefc")
+        self.button_search.configure(borderwidth="0")
+        self.img_search = PhotoImage(master=self.root, file="./images/button_search.png")
+        self.button_search.configure(image=self.img_search)
 
         self.button_addproduct = Button(self.root)
         self.button_addproduct.place(relx=0.6574, rely=0.646)

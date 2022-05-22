@@ -17,13 +17,13 @@ class AdminWorkController():
         self.window.mainloop()
 
     def inventory(self):
-        self.wd=InventoryManagementController(self.window)
+        self.wd=InventoryManagementController(self.window, self.root)
 
     def invoice(self):
         pass
 
     def employee(self):
-        self.wd=EmployeesManagementController(self.window)
+        self.wd=EmployeesManagementController(self.window, self.root)
     
     def logout(self):
         sure = messagebox.askyesno("Logout", "Are you sure you want to logout?")

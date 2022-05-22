@@ -7,7 +7,7 @@ from Model.RolePageModel import *
 from Setting.MakeCenter import *
 
 class RolePageController():
-    def __init__(self,*args,**kwargs):
+    def __init__(self):
       self.root = Tk()
       # center(self.root)
       self.model = RolePageModel()
@@ -17,13 +17,9 @@ class RolePageController():
       self.root.mainloop()
 
     def admin(self):
-      self.toplv = Toplevel(self.root)
       self.root.withdraw()
-      self.admin_work = AdminLoginPageController(self.toplv)
-      self.toplv.mainloop()
+      self.admin_work = AdminLoginPageController(self.root)
 
     def employee(self):
-      self.toplv = Toplevel(self.root)
       self.root.withdraw()
-      self.employee_work = EmployeeLoginPageController(self.toplv)
-      self.toplv.mainloop()
+      self.employee_work = EmployeeLoginPageController(self.root)

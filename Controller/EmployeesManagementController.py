@@ -17,13 +17,15 @@ class EmployeesManagementController():
         self.display_data()
         self.view.button_search.configure(command=self.search_emp)
         self.view.button_add_employee.configure(command=self.add_employee)
+        self.view.button_update_employee.configure(command=self.update_employee)
+        self.view.button_del_employee.configure(command=self.remove_employee)
         self.view.button_exit.configure(command=self.exit)
         self.view.button_logout.configure(command=self.logout)
         self.window.mainloop()
 
     def display_data(self):
         for data in (self.model.mycollection.find()):
-            self.view.contacts.append((data["_id"],data["_name"],data["_role"],data["_phone"],data["_age"],data["_wage"],data["_username"]))
+            self.view.contacts.append((data["_id"],data["_name"],data["_role"],data["_phone"],data["_phone_sub"],data["_age"],data["_wage"],data["_username"]))
         for contact in self.view.contacts:
             self.view.tree.insert("",END,values=contact)
 
@@ -34,6 +36,7 @@ class EmployeesManagementController():
                 self.sel.append(i)
 
     def clear_treeview(self):
+        self.view.contacts.clear()
         for i in self.view.tree.get_children():
             self.view.tree.delete(i)
 
@@ -56,10 +59,41 @@ class EmployeesManagementController():
 
     def add_employee(self):
         self.window.withdraw()
-        AddEmployeeController(self.window, self.toplv)
+        AddEmployeeController(self.window, self.toplv,self)
 
     def remove_employee(self):
-        pass
+        val=[]
+        to_del=[]
+
+        if len(self.sel)!=0:
+            sure = messagebox.askyesno("Confirm", "Are you sure you want to removedelete this employee?")
+            if sure == True:
+                for i in self.sel:
+                    for j in self.view.tree.item(i)["values"]:
+                        val.append(j)
+
+                for i in range(len(val)):
+                    if i%8==0:
+                        to_del.append(val[i])
+                    
+                flag = 1
+
+                for i in to_del:
+                    if i =="c000":
+                        flag = 0
+                        break
+                    else:
+                        self.model.mycollection.delete_one({"_id":i})
+                
+                if flag == 1:
+                    messagebox.showinfo("Success!","Employee was deleted successfully")
+                    self.sel.clear()
+                    self.clear_treeview()
+                    self.display_data()
+                else:
+                    messagebox.showerror("Error","Can not delete master admin")
+        else:
+            messagebox.showerror("Error","Please select an employee!")
 
     def update_employee(self):
         pass

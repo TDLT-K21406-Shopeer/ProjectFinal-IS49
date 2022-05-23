@@ -14,8 +14,8 @@ class InventoryManagementView:
         self.label.configure(image=self.img)
 
         self.columns =("id", "name", "quantity","price in","price out")
-        self.scrollbarx = Scrollbar(root, orient=HORIZONTAL)
-        self.scrollbary = Scrollbar(root, orient=VERTICAL)
+        # self.scrollbarx = Scrollbar(root, orient=HORIZONTAL)
+        # self.scrollbary = Scrollbar(root, orient=VERTICAL)
         self.tree = Treeview(root)
         self.tree.place(x=25, y=108, width=715, height=635)
         self.tree.configure(

@@ -16,17 +16,22 @@ class AdminLoginPageController():
         self.toplv.mainloop()
 
     def login(self):
-        if self.model.check_account():
-            self.model.username.set("")
-            self.model.password.set("")
-            self.view.entry_username.config(textvariable =self.model.username)
-            self.view.entry_password.config(textvariable =self.model.password)
-            self.toplv.withdraw()
-            self.new_root = AdminWorkController(self.root)
-
+        if (self.model.username.get()).strip():
+            if (self.model.password.get()).strip():
+                if self.model.check_account():
+                    self.model.username.set("")
+                    self.model.password.set("")
+                    self.view.entry_username.config(textvariable =self.model.username)
+                    self.view.entry_password.config(textvariable =self.model.password)
+                    self.toplv.withdraw()
+                    self.new_root = AdminWorkController(self.root)
+                else:
+                    messagebox.showerror("Error","Username or password incorrect")
+                    self.model.username.set("")
+                    self.model.password.set("")
+                    self.view.entry_username.config(textvariable =self.model.username)
+                    self.view.entry_password.config(textvariable =self.model.password)
+            else:
+                messagebox.showerror("Error","Please enter a password")
         else:
-            messagebox.showerror("Error","Username or password incorrect")
-            self.model.username.set("")
-            self.model.password.set("")
-            self.view.entry_username.config(textvariable =self.model.username)
-            self.view.entry_password.config(textvariable =self.model.password)
+            messagebox.showerror("Error","Please enter a username")

@@ -4,7 +4,7 @@ class AdminLoginPageView():
     def __init__(self, root):
         root.title("Admin Login")
         root.geometry("1366x768")
-        root.resizable(0,  0)
+        root.resizable(0,0)
 
         self.label = Label(root)
         self.label.place(relx=0, rely=0, width=1366, height=768)

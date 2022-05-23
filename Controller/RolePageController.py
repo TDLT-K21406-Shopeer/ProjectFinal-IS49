@@ -9,7 +9,7 @@ from Setting.MakeCenter import *
 class RolePageController():
     def __init__(self):
       self.root = Tk()
-      center(self.root)
+      # center(self.root)
       self.model = RolePageModel()
       self.view = RolePageView(self.root)
       self.view.button_admin.configure(command=self.admin)

@@ -12,31 +12,42 @@ class AddProductView():
 
         self.entry_name = Entry(root)
         self.entry_name.place(x=320, y=390, width=280, height=34)
-        self.entry_name.configure(font="-family {Poppins} -size 12")
+        self.entry_name.configure(font="Itim 14")
         self.entry_name.configure(relief="flat")
         self.entry_name.configure(bg="#E7CAEC")
 
+        self.entry_trademark = Entry(root)
+        self.entry_trademark.place(x=320, y=490, width=280, height=34)
+        self.entry_trademark.configure(font="Itim 14")
+        self.entry_trademark.configure(relief="flat")
+        self.entry_trademark.configure(bg="#E7CAEC")
+
         self.entry_quanlity = Entry(root)
-        self.entry_quanlity.place(x=320, y=490, width=280, height=34)
-        self.entry_quanlity.configure(font="-family {Poppins} -size 12")
+        self.entry_quanlity.place(x=850, y=490, width=280, height=34)
+        self.entry_quanlity.configure(font="Itim 14")
         self.entry_quanlity.configure(relief="flat")
         self.entry_quanlity.configure(bg="#E7CAEC")
 
+        self.entry_id = Entry(root)
+        self.entry_id.place(x=850, y=390, width=280, height=34)
+        self.entry_id.configure(font="Itim 14")
+        self.entry_id.configure(relief="flat")
+        self.entry_id.configure(bg="#E7CAEC")
+
         self.entry_price_in = Entry(root)
-        self.entry_price_in.place(x=850, y=490, width=280, height=34)
-        self.entry_price_in.configure(font="-family {Poppins} -size 12")
+        self.entry_price_in.place(x=320, y=590, width=280, height=34)
+        self.entry_price_in.configure(font="Itim 14")
         self.entry_price_in.configure(relief="flat")
         self.entry_price_in.configure(bg="#E7CAEC")
 
         self.entry_price_out = Entry(root)
-        self.entry_price_out.place(x=850, y=390, width=280, height=34)
-        self.entry_price_out.configure(font="-family {Poppins} -size 12")
+        self.entry_price_out.place(x=850, y=590, width=280, height=34)
+        self.entry_price_out.configure(font="Itim 14")
         self.entry_price_out.configure(relief="flat")
         self.entry_price_out.configure(bg="#E7CAEC")
 
-        # Add
         self.button_add = Button(root)
-        self.button_add.place(x=420, y=600)
+        self.button_add.place(x=470, y=655)
         self.button_add.configure(borderwidth="0")
         self.button_add.configure(background="#E7E7E7")
         self.button_add.configure(activebackground="#E7E7E7")
@@ -45,7 +56,7 @@ class AddProductView():
 
         # Clear
         self.button_clear = Button(root)
-        self.button_clear.place(x=610, y=600)
+        self.button_clear.place(x=640, y=655)
         self.button_clear.configure(borderwidth="0")
         self.button_clear.configure(background="#E7E7E7")
         self.button_clear.configure(activebackground="#E7E7E7")
@@ -54,7 +65,7 @@ class AddProductView():
 
         # Exit
         self.button_exit = Button(root)
-        self.button_exit.place(x=800, y=600)
+        self.button_exit.place(x=810, y=655)
         self.button_exit.configure(borderwidth="0")
         self.button_exit.configure(background="#E7E7E7")
         self.button_exit.configure(activebackground="#E7E7E7")

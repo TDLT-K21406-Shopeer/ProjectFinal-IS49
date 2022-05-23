@@ -1,9 +1,7 @@
-from re import M
 from tkinter import *
 from tkinter import messagebox
 from View.AddEmployeeView import *
 from Model.AddEmployeeModel import *
-import random
 
 class AddEmployeeController():
     def __init__(self, root, toplv, controller):
@@ -26,7 +24,7 @@ class AddEmployeeController():
                     messagebox.showerror("Error","This username has been taken. Please try another")
                     return False
             else:
-                emp_id = self.model.random_id(self.view.entry_role.get())
+                emp_id = self.model.create_id(self.view.entry_role.get())
                 data = {
                     "_id":emp_id,
                     "_username":self.view.entry_username.get(),
@@ -108,6 +106,8 @@ class AddEmployeeController():
                     else:
                         messagebox.showerror("Error","Please enter a valid age")
                         return False
+                else:
+                    messagebox.showerror("Error","Invalid wage")
             else:
                 messagebox.showerror("Error","Please enter a valid wage")
                 return False

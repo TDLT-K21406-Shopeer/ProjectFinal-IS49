@@ -7,4 +7,5 @@ class EmployeesManagementModel():
         self.id = StringVar()
         self.myclient = pymongo.MongoClient("mongodb://localhost:27017")
         self.mydb = self.myclient["project"]
-        self.mycollection = self.mydb["Employee"]
+        self.mycollection_emp = self.mydb["Employee"]
+        self.mycollection_adm = self.mydb["Admin"]

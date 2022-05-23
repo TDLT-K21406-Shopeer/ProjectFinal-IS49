@@ -1,17 +1,7 @@
-import random
-from tkinter import StringVar, messagebox
 import pymongo
 
 class AddEmployeeModel():
     def __init__(self):
-        self.name = StringVar()
-        self.phone_sub = StringVar()
-        self.role = StringVar()
-        self.age = StringVar()
-        self.wage = StringVar()
-        self.phone = StringVar()
-        self.username = StringVar()
-        self.password = StringVar()
         self.myclient = pymongo.MongoClient("mongodb://localhost:27017/")
         self.mydb = self.myclient["project"]
         self.mycollection_emp= self.mydb["Employee"]
@@ -20,11 +10,11 @@ class AddEmployeeModel():
     def add_data(self,data:dict, col):
         doc = col.insert_one(data)
     
-    def random_id(self,role):
+    def create_id(self,role):
         if role == "Admin":
             id="c"
         else:
             id ="e"
-        for i in range(3):
-            id += str(random.randint(0,10))
-        return id
+        count_doc =str(self.mycollection_emp.count_documents({})+1)
+        count_doc = (3-len(count_doc))*"0"+count_doc
+        return id+count_doc

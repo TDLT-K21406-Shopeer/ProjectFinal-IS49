@@ -24,7 +24,7 @@ class EmployeesManagementController():
         self.window.mainloop()
 
     def display_data(self):
-        for data in (self.model.mycollection.find()):
+        for data in (self.model.mycollection_emp.find()):
             self.view.contacts.append((data["_id"],data["_name"],data["_role"],data["_phone"],data["_phone_sub"],data["_age"],data["_wage"],data["_username"]))
         for contact in self.view.contacts:
             self.view.tree.insert("",END,values=contact)
@@ -66,7 +66,7 @@ class EmployeesManagementController():
         to_del=[]
 
         if len(self.sel)!=0:
-            sure = messagebox.askyesno("Confirm", "Are you sure you want to removedelete this employee?")
+            sure = messagebox.askyesno("Confirm", "Are you sure you want to delete this employee?")
             if sure == True:
                 for i in self.sel:
                     for j in self.view.tree.item(i)["values"]:
@@ -83,7 +83,9 @@ class EmployeesManagementController():
                         flag = 0
                         break
                     else:
-                        self.model.mycollection.delete_one({"_id":i})
+                        self.model.mycollection_emp.delete_one({"_id":i})
+                        if i[0]=="c":
+                            self.model.mycollection_adm.delete_one({"_id":i})
                 
                 if flag == 1:
                     messagebox.showinfo("Success!","Employee was deleted successfully")

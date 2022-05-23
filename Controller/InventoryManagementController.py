@@ -1,5 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
+
+from matplotlib.pyplot import flag
 from View.InventoryManagementView import *
 from Controller.AddProductController import *
 from Model.InventoryManagementModel import *
@@ -23,7 +25,7 @@ class InventoryManagementController():
 
     def display_data(self):
         for data in (self.model.mycollection.find()):
-            self.view.contacts.append((data["_id"],data["car_name"],data["quantity"],data["price_in"],data["price_out"]))
+            self.view.contacts.append((data["_id"],data["car_name"],data["trademark"],data["quantity"],data["price_in"],data["price_out"]))
         for contact in self.view.contacts:
             self.view.tree.insert("",END,values=contact)
 
@@ -32,6 +34,11 @@ class InventoryManagementController():
         for i in self.view.tree.selection():
             if i not in self.sel:
                 self.sel.append(i)
+
+    def clear_treeview(self):
+        self.view.contacts.clear()
+        for i in self.view.tree.get_children():
+            self.view.tree.delete(i)
 
     def search_product(self):
         val=[]
@@ -54,10 +61,29 @@ class InventoryManagementController():
     
     def add_product(self):
         self.window.withdraw()
-        AddProductController(self.window, self.toplv)
+        AddProductController(self.window, self.toplv,self)
 
     def remove_product(self):
-        pass
+        val=[]
+        to_del=[]
+        if len(self.sel)!=0:
+            sure = messagebox.askyesno("Confirm", "Are you sure you want to delete this product?")
+            if sure == True:
+                for i in self.sel:
+                    for j in self.view.tree.item(i)["values"]:
+                        val.append(j)
+
+                for i in range(len(val)):
+                    if i%6==0:
+                        to_del.append(val[i])
+                for i in to_del:
+                    self.model.mycollection.delete_one({"_id":i})
+                messagebox.showinfo("Success!","Product was deleted successfully")
+                self.sel.clear()
+                self.clear_treeview()
+                self.display_data()
+        else:
+            messagebox.showerror("Error","Please select a product!")
 
     def update_product(self):
         pass

@@ -3,13 +3,11 @@ from tkinter import messagebox
 from Controller.InventoryManagementController import *
 from Controller.EmployeesManagementController import *
 from View.AdminWorkView import *
-from Model.AdminWorkModel import *
 
 class AdminWorkController():
     def __init__(self, root):
         self.root = root
         self.window = Tk()
-        self.model = AdminWorkModel()
         self.view = AdminWorkView(self.window)
         self.view.button_inventory.configure(command=self.inventory)
         self.view.button_quit.configure(command=self.logout)

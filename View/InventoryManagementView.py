@@ -13,30 +13,28 @@ class InventoryManagementView:
         self.img = PhotoImage(master = self.root, file="./Images/InventoryManagement.png")
         self.label.configure(image=self.img)
 
-        self.columns =("id", "name", "quantity","price in","price out")
-        # self.scrollbarx = Scrollbar(root, orient=HORIZONTAL)
-        # self.scrollbary = Scrollbar(root, orient=VERTICAL)
+        self.columns =("id", "name", "trademark","quantity","price in","price out")
         self.tree = Treeview(root)
         self.tree.place(x=25, y=108, width=715, height=635)
         self.tree.configure(
             columns=self.columns,
-            # yscrollcommand=self.scrollbary.set,
-            # xscrollcommand=self.scrollbarx.set,
             selectmode="extended"
         )
 
-        self.tree.heading('id',text= "ID", anchor= W)
+        self.tree.heading('id',text= "ID", anchor= CENTER)
         self.tree.heading('name',text= "Name", anchor= W)
-        self.tree.heading('quantity',text= "Quantity", anchor= W)
+        self.tree.heading('trademark',text= "Trademark", anchor= W)
+        self.tree.heading('quantity',text= "Quantity", anchor= CENTER)
         self.tree.heading('price in',text= "Price in", anchor= E)
         self.tree.heading('price out',text= "Price out", anchor= E)
 
         self.tree.column("#0", stretch=NO, minwidth=0, width=0)
-        self.tree.column("#1", stretch=NO, minwidth=0, width=55)
-        self.tree.column("#2", stretch=NO, minwidth=0, width=330)
-        self.tree.column("#3", stretch=NO, minwidth=0, width=80)
-        self.tree.column("#4", stretch=NO, minwidth=0, width=125, anchor=E)
+        self.tree.column("#1", stretch=NO, minwidth=0, width=55, anchor=CENTER)
+        self.tree.column("#2", stretch=NO, minwidth=0, width=250)
+        self.tree.column("#3", stretch=NO, minwidth=0, width=100)
+        self.tree.column("#4", stretch=NO, minwidth=0, width=60, anchor=CENTER)
         self.tree.column("#5", stretch=NO, minwidth=0, width=125, anchor=E)
+        self.tree.column("#6", stretch=NO, minwidth=0, width=125, anchor=E)
 
         self.contacts=[]
 

@@ -23,7 +23,7 @@ class EmployeesManagementController():
 
     def display_data(self):
         for data in (self.model.mycollection.find()):
-            self.view.contacts.append((data["_id"],data["_name"],data["_phone"],data["_age"],data["_wage"],data["_username"]))
+            self.view.contacts.append((data["_id"],data["_name"],data["_role"],data["_phone"],data["_age"],data["_wage"],data["_username"]))
         for contact in self.view.contacts:
             self.view.tree.insert("",END,values=contact)
 
@@ -32,6 +32,10 @@ class EmployeesManagementController():
         for i in self.view.tree.selection():
             if i not in self.sel:
                 self.sel.append(i)
+
+    def clear_treeview(self):
+        for i in self.view.tree.get_children():
+            self.view.tree.delete(i)
 
     def search_emp(self):
         val=[]
@@ -46,11 +50,9 @@ class EmployeesManagementController():
                 self.view.tree.selection_set(val[val.index(search)-1])
                 self.view.tree.focus(val[val.index(search)-1])
                 messagebox.showinfo("Success!","Employee ID: {}".format(self.view.entry_id.get()))
-
                 break
         else:
             messagebox.showerror("Error","Not found employee")
-
 
     def add_employee(self):
         self.window.withdraw()

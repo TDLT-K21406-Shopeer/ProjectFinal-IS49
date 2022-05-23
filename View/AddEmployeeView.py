@@ -49,14 +49,14 @@ class AddEmployeeView:
         self.entry_role.configure(bg="#EECCEE")
 
         self.entry_username = Entry(root)
-        self.entry_username.place(x=320, y=560, width=280, height=32)
+        self.entry_username.place(x=320, y=563, width=280, height=32)
         self.entry_username.configure(
             font="Itim 14",
             relief="flat",
             bg="#EECCEE")
 
         self.entry_password = Entry(root)
-        self.entry_password.place(x=840,y=560, width=280, height=32)
+        self.entry_password.place(x=840,y=563, width=280, height=32)
         self.entry_password.configure(
             font="Itim 14",
             relief="flat",

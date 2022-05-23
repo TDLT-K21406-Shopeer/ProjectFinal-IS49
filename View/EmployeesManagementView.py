@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import font
 from tkinter.ttk import Treeview
 
 class EmployeesManagementView:
@@ -13,32 +14,30 @@ class EmployeesManagementView:
         self.img = PhotoImage(master = self.root, file="./Images/EmployeeManagement.png")
         self.label.configure(image=self.img)
 
-        self.columns = ("id", "name","phone", "age","wage", "username")
-        self.scrollbarx = Scrollbar(root, orient = HORIZONTAL)
-        self.scrollbary = Scrollbar(root, orient = VERTICAL)
+        self.columns = ("id", "name","role","phone", "age","wage", "username")
         self.tree = Treeview(root)
-        self.tree.place(x=25, y=108, width=715, height=635)
+        self.tree.place(x=20, y=103, width=730, height=635)
         self.tree.configure(
             columns = self.columns,
-            # yscrollcommand = self.scrollbary.set,
-            # xscrollCommand = self.scrollbarx.set,
             selectmode ="extended"
         )
 
         self.tree.heading("id", text="ID", anchor=W)
         self.tree.heading("name", text="Name", anchor=W)
+        self.tree.heading("role", text="Role", anchor=W)
         self.tree.heading("phone", text="Phone", anchor=W)
         self.tree.heading("age", text="Age", anchor=W)
         self.tree.heading("wage", text="wage", anchor=W)
         self.tree.heading("username", text="Username", anchor=W)
         
         self.tree.column("#0", stretch=NO, minwidth=0, width=0)
-        self.tree.column("#1", stretch=NO, minwidth=0, width=55)
-        self.tree.column("#2", stretch=NO, minwidth=0, width=300)
-        self.tree.column("#3", stretch=NO, minwidth=0, width=90)
-        self.tree.column("#4", stretch=NO, minwidth=0, width=70)
-        self.tree.column("#5", stretch=NO, minwidth=0, width=100)
+        self.tree.column("#1", stretch=NO, minwidth=0, width=50)
+        self.tree.column("#2", stretch=NO, minwidth=0, width=200)
+        self.tree.column("#3", stretch=NO, minwidth=0, width=100)
+        self.tree.column("#4", stretch=NO, minwidth=0, width=100)
+        self.tree.column("#5", stretch=NO, minwidth=0, width=70)
         self.tree.column("#6", stretch=NO, minwidth=0, width=100)
+        self.tree.column("#7", stretch=NO, minwidth=0, width=100)
 
         self.contacts = []
 

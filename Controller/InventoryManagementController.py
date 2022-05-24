@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from click import command
 
 from matplotlib.pyplot import flag
 from View.InventoryManagementView import *
@@ -19,6 +20,7 @@ class InventoryManagementController():
         self.display_data()
         self.view.button_search.configure(command=self.search_product)
         self.view.button_addproduct.configure(command=self.add_product)
+        self.view.button_deleteproduct.configure(command=self.remove_product)
         self.view.button_exit.configure(command = self.exit)
         self.view.button_logout.configure(command = self.logout)
         self.window.mainloop()

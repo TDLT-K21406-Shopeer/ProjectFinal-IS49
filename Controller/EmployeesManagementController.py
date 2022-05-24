@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from View.EmployeesManagementView import *
 from Controller.AddEmployeeController import *
+from Controller.UpdateEmployeeController import *
 from Model.EmployeesManagementModel import *
 
 class EmployeesManagementController():
@@ -98,7 +99,22 @@ class EmployeesManagementController():
             messagebox.showerror("Error","Please select an employee!")
 
     def update_employee(self):
-        pass
+        if len(self.sel)==1:
+            self.val=[]
+            for i in self.sel:
+                for j in self.view.tree.item(i)["values"]:
+                    self.val.append(j)
+            for data in (self.model.mycollection_emp.find()):
+                if data["_id"] == self.val[0]:
+                    self.pw=data["_password"]
+                    break
+            self.window.withdraw()
+            UpdateEmployeeController(self.window,self.toplv,self)
+        elif len(self.sel)==0:
+            messagebox.showerror("Error","Please choose a employee to update.")
+        else:
+            messagebox.showerror("Error","Can only update one product at a time.")
+
 
     def exit(self):
         self.window.destroy()

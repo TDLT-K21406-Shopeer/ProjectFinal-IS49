@@ -76,7 +76,9 @@ class UpdateProductView():
         self.button_logout.configure(image=self.img_logout)
 
         self.entry_name.insert(0,controller.val[1])
-        self.entry_name.configure(state=DISABLED)
+        self.entry_name.configure(
+            state=DISABLED,
+            disabledbackground="#E7E7E7")
         self.entry_trademark.insert(0,controller.val[2])
         self.entry_quantity.insert(0,controller.val[3])
         self.entry_price_in.insert(0,controller.val[4])

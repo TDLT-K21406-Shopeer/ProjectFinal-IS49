@@ -15,7 +15,7 @@ class InventoryManagementView:
 
         self.columns =("id", "name", "trademark","quantity","price in","price out")
         self.tree = Treeview(root)
-        self.tree.place(x=25, y=108, width=715, height=635)
+        self.tree.place(x=25, y=106, width=715, height=635)
         self.tree.configure(
             columns=self.columns,
             selectmode="extended"

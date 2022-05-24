@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from Controller.InventoryManagementController import *
+from Controller.InvoicesManagementController import *
 from View.EmployeeWorkView import *
 
 class EmployeeWorkController():
@@ -10,10 +11,11 @@ class EmployeeWorkController():
         self.view = EmployeeWorkView(self.window)
         self.view.button_quit.configure(command=self.logout)
         self.view.button_inventory.configure(command=self.inventory)
+        self.view.button_invoice.configure(command=self.invoice)
         self.window.mainloop()
 
     def invoice(self):
-        pass
+        self.wd=InvoicesManagementController(self.window,self.root)
 
     def inventory(self):
         self.wd=InventoryManagementController(self.window,self.root)

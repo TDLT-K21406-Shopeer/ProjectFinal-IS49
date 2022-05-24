@@ -100,10 +100,12 @@ class UpdateEmployeeView:
         self.entry_name.insert(0,controller.val[1])
         self.entry_role.insert(0,controller.val[2])
         self.entry_role["state"]=DISABLED
+        self.entry_role.configure(disabledbackground="#E7E7E7")
         self.entry_phone.insert(0,controller.val[3])
         self.entry_phone_sub.insert(0,controller.val[4])
         self.entry_age.insert(0,controller.val[5])
         self.entry_wage.insert(0,controller.val[6])
         self.entry_username.insert(0,controller.val[7])
         self.entry_username["state"]=DISABLED
+        self.entry_username.configure(disabledbackground="#E7E7E7")
         self.entry_password.insert(0,controller.pw)

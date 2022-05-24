@@ -29,7 +29,7 @@ class UpdateEmployeeController():
             self.model.update(data,self.model.mycollection_emp,self.view.entry_username.get())
             if self.view.entry_role.get() =="Admin":
                 self.model.update(data,self.model.mycollection_adm,self.view.entry_username.get())
-            messagebox.showinfo("Succsess","Update successfully")
+            messagebox.showinfo("Success","Update successfully")
             self.controller.clear_treeview()
             self.controller.display_data()
 
@@ -101,7 +101,14 @@ class UpdateEmployeeController():
 
 
     def clear(self):
-        pass
+        self.view.entry_name.delete(0,"end")
+        self.view.entry_wage.delete(0,"end")
+        self.view.entry_age.delete(0,"end")
+        self.view.entry_phone.delete(0,"end")
+        self.view.entry_phone_sub.delete(0,"end")
+        self.view.entry_role.delete(0,"end")
+        self.view.entry_username.delete(0,"end")
+        self.view.entry_password.delete(0,"end")
 
     def exit(self):
         self.clear()

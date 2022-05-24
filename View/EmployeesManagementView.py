@@ -43,7 +43,7 @@ class EmployeesManagementView:
         self.contacts = []
 
         self.entry_id = Entry(self.root)
-        self.entry_id.place(relx=0.6578, rely=0.54, width=365, height=32)
+        self.entry_id.place(relx=0.6578, rely=0.547, width=365, height=30)
         self.entry_id.configure(background = "#fcdefc")
         self.entry_id.configure(font="Itim 18")
         self.entry_id.configure(relief="flat")

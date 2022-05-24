@@ -39,7 +39,7 @@ class InventoryManagementView:
         self.contacts=[]
 
         self.entry_IDproduct = Entry(self.root)
-        self.entry_IDproduct.place(relx=0.67, rely=0.55, width=365, height=32)
+        self.entry_IDproduct.place(relx=0.67, rely=0.54, width=365, height=32)
         self.entry_IDproduct.configure(background = "#fcdefc")
         self.entry_IDproduct.configure(font="Itim 18")
         self.entry_IDproduct.configure(relief="flat")

@@ -1,8 +1,5 @@
 from tkinter import *
 from tkinter.ttk import Treeview
-from turtle import width
-
-from matplotlib.pyplot import text
 
 class InvoicesManagementView():
     def __init__(self,root):

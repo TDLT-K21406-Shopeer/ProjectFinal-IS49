@@ -1,10 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
-from click import command
-
-from matplotlib.pyplot import flag
 from View.InventoryManagementView import *
 from Controller.AddProductController import *
+from Controller.UpdateProductController import *
 from Model.InventoryManagementModel import *
 
 class InventoryManagementController():
@@ -20,6 +18,7 @@ class InventoryManagementController():
         self.display_data()
         self.view.button_search.configure(command=self.search_product)
         self.view.button_addproduct.configure(command=self.add_product)
+        self.view.button_updateproduct.configure(command=self.update_product)
         self.view.button_deleteproduct.configure(command=self.remove_product)
         self.view.button_exit.configure(command = self.exit)
         self.view.button_logout.configure(command = self.logout)
@@ -88,7 +87,17 @@ class InventoryManagementController():
             messagebox.showerror("Error","Please select a product!")
 
     def update_product(self):
-        pass
+        if len(self.sel)==1:
+            self.val=[]
+            for i in self.sel:
+                for j in self.view.tree.item(i)["values"]:
+                    self.val.append(j)
+            self.window.withdraw()
+            UpdateProductController(self.window,self.toplv,self)
+        elif len(self.sel)==0:
+            messagebox.showerror("Error","Please choose a product to update.")
+        else:
+            messagebox.showerror("Error","Can only update one product at a time.")
 
     def exit(self):
         self.window.destroy()

@@ -113,7 +113,7 @@ class EmployeesManagementController():
         elif len(self.sel)==0:
             messagebox.showerror("Error","Please choose a employee to update.")
         else:
-            messagebox.showerror("Error","Can only update one product at a time.")
+            messagebox.showerror("Error","Can only update one employee at a time.")
 
 
     def exit(self):

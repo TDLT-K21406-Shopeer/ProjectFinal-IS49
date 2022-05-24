@@ -83,7 +83,7 @@ class AddProductController():
     def clear_entry(self):
         self.view.entry_name.delete(0,"end")
         self.view.entry_trademark.delete(0,"end")
-        self.view.entry_quanlity.delete(0,"end")
+        self.view.entry_quantity.delete(0,"end")
         self.view.entry_price_in.delete(0,"end")
         self.view.entry_price_out.delete(0,"end")
 

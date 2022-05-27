@@ -22,11 +22,11 @@ class AddProductView():
         self.entry_trademark.configure(relief="flat")
         self.entry_trademark.configure(bg="#E7CAEC")
 
-        self.entry_quanlity = Entry(root)
-        self.entry_quanlity.place(x=320, y=490, width=280, height=34)
-        self.entry_quanlity.configure(font="Itim 14")
-        self.entry_quanlity.configure(relief="flat")
-        self.entry_quanlity.configure(bg="#E7CAEC")
+        self.entry_quantity = Entry(root)
+        self.entry_quantity.place(x=320, y=490, width=280, height=34)
+        self.entry_quantity.configure(font="Itim 14")
+        self.entry_quantity.configure(relief="flat")
+        self.entry_quantity.configure(bg="#E7CAEC")
 
         self.entry_price_in = Entry(root)
         self.entry_price_in.place(x=850, y=490, width=280, height=34)

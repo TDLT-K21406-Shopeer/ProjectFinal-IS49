@@ -1,3 +1,4 @@
+from faulthandler import disable
 from tkinter import *
 class UpdateProductView():
     def __init__(self, root,controller):
@@ -78,7 +79,8 @@ class UpdateProductView():
         self.entry_name.insert(0,controller.val[1])
         self.entry_name.configure(
             state=DISABLED,
-            disabledbackground="#E7E7E7")
+            disabledbackground="#E7CAEC",
+            disabledforeground="#ffffff")
         self.entry_trademark.insert(0,controller.val[2])
         self.entry_quantity.insert(0,controller.val[3])
         self.entry_price_in.insert(0,controller.val[4])

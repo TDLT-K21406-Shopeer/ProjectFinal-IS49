@@ -29,7 +29,7 @@ class AddProductController():
                     "_id": car_id,
                     "car_name":self.view.entry_name.get(),
                     "trademark":self.view.entry_trademark.get(),
-                    "quantity":self.view.entry_quanlity.get(),
+                    "quantity":self.view.entry_quantity.get(),
                     "price_in":self.view.entry_price_in.get(),
                     "price_out":self.view.entry_price_out.get()
                 }
@@ -41,7 +41,7 @@ class AddProductController():
     def check_enter(self):
         name = self.view.entry_name.get()
         trademark = self.view.entry_trademark.get()
-        quantity = self.view.entry_quanlity.get()
+        quantity = self.view.entry_quantity.get()
         price_in = self.view.entry_price_in.get()
         price_out = self.view.entry_price_out.get()
 

@@ -13,26 +13,28 @@ class InvoicesManagementView():
         self.img = PhotoImage(master=self.root, file="./Images/InvoicesManagement.png")
         self.label.configure(image=self.img)
 
-        self.columns =("id","name","price","date","sell")
+        self.columns =("id","car_name","customer_name","price","date","sell")
         self.tree = Treeview(self.root)
-        self.tree.place(x=25, y=104, width=715, height=635)
+        self.tree.place(x=15, y=104, width=735, height=635)
         self.tree.configure(
             columns=self.columns,
             selectmode="extended"
         )
 
-        self.tree.heading("id",text = "ID", anchor=W)
-        self.tree.heading("name",text = "Name", anchor=W)
+        self.tree.heading("id",text = "ID", anchor=CENTER),
+        self.tree.heading("car_name",text = "Car", anchor=W)
+        self.tree.heading("customer_name",text = "Customer", anchor=W)
         self.tree.heading("price",text = "Price", anchor=W)
-        self.tree.heading("date",text = "Date", anchor=W)
+        self.tree.heading("date",text = "Date", anchor=CENTER)
         self.tree.heading("sell",text = "Sell By", anchor=W)
 
         self.tree.column("#0", stretch=NO, minwidth=0, width=0)
-        self.tree.column("#1", stretch=NO, minwidth=0, width=55)
-        self.tree.column("#2", stretch=NO, minwidth=0, width=210)
-        self.tree.column("#3", stretch=NO, minwidth=0, width=120)
-        self.tree.column("#4", stretch=NO, minwidth=0, width=120)
-        self.tree.column("#5", stretch=NO, minwidth=0, width=210)
+        self.tree.column("#1", stretch=NO, minwidth=0, width=85, anchor=CENTER)
+        self.tree.column("#2", stretch=NO, minwidth=0, width=160)
+        self.tree.column("#3", stretch=NO, minwidth=0, width=160)
+        self.tree.column("#4", stretch=NO, minwidth=0, width=100)
+        self.tree.column("#5", stretch=NO, minwidth=0, width=70, anchor=CENTER)
+        self.tree.column("#6", stretch=NO, minwidth=0, width=160)
 
         self.contacts = []
 

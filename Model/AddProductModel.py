@@ -20,7 +20,7 @@ class AddProductModel():
         while True:
             product_id = self.random_id()
             for i in (self.mycollection.find()):
-                if product_id == data["_id"]:
+                if product_id == i["_id"]:
                     break
             else:
                 return product_id

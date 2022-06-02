@@ -18,6 +18,10 @@ class AddEmployeeController():
         self.window.mainloop()
 
     def add_employee(self):
+        """
+        It adds an employee to the database.
+        :return: The return value of the function is the value of the last expression evaluated.
+        """
         if self.check_enter():
             for data in (self.model.mycollection_emp.find()):
                 if data["_username"] == self.view.entry_username.get():
@@ -72,7 +76,7 @@ class AddEmployeeController():
                                 if phone.strip():
                                     if phone.isnumeric():
                                         if len(phone)==10 and phone.startswith("0"):
-                                            if phone_sub.isdigit() or phone_sub!="0":
+                                            if phone_sub.isdigit() or phone_sub=="":
                                                 if role.strip() and (role=="Admin" or role =="Employee"):
                                                     if username.strip():
                                                         if password.strip():
